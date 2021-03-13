@@ -58,7 +58,7 @@ function updateCountdown(dateBox) {
   countdownTitle = dateBox.target[0].value;
   countdownDate = dateBox.target[1].value;
   // Check for valid date
-  if (countdownDate < today) {
+  if (countdownDate < today + timezoneOffset) {
     alert(
       `Please select a date for the countdown that is greater than today's date`
     );
