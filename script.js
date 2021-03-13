@@ -13,7 +13,7 @@ const completeBtn = document.getElementById('complete-button');
 
 let countdownTitle = '';
 let countdownDate = '';
-let countdownValue = Date;
+let countdownValue = new Date();
 let countdownActive;
 let savedCountdown;
 
@@ -75,7 +75,7 @@ function updateCountdown(dateBox) {
   };
   localStorage.setItem('countdown', JSON.stringify(savedCountdown));
   // Check for valid date
-  if (countdownDate < today) {
+  if (countdownDate === '') {
     alert(
       `Please select a date for the countdown that is greater than today's date`
     );
