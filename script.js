@@ -17,19 +17,26 @@ const minute = second * 60;
 const hour = minute * 60;
 const day = hour * 24;
 
+console.log(new Date());
+// shows current date/time on local machine
+
 const timezoneOffset = new Date().getTimezoneOffset() * 60000;
+console.log(timezoneOffset);
+// the return is 480 minutes ahead of local time so 60,000 miliseconds are in a minute so multiply that by the timezoneoffset to get the actual time difference between local and GMT.
+
 const today = new Date(Date.now() - timezoneOffset)
   .toISOString()
   .slice(0, -5)
   .split('T')[0];
+console.log(today);
+// Expected local machine date
+
 const curTime = new Date(Date.now() - timezoneOffset)
   .toISOString()
   .slice(0, -5)
-  .split('T')[0];
-console.log(Date.now().value);
-console.log(today);
+  .split('T')[1];
 console.log(curTime);
-console.log(new Date());
+// Expected local machine time after adjusting for timezone
 
 dateEl.setAttribute('min', today);
 
