@@ -17,41 +17,25 @@ const minute = second * 60;
 const hour = minute * 60;
 const day = hour * 24;
 
-console.log(new Date());
-// shows current date/time on local machine
-
 const timezoneOffset = new Date().getTimezoneOffset() * 60000;
-console.log(timezoneOffset);
-// the return is 480 minutes ahead of local time so 60,000 miliseconds are in a minute so multiply that by the timezoneoffset to get the actual time difference between local and GMT.
-
 const today = new Date(Date.now() - timezoneOffset)
   .toISOString()
   .slice(0, -5)
   .split('T')[0];
-console.log(today);
-// Expected local machine date
 
-const curTime = new Date(Date.now() - timezoneOffset)
-  .toISOString()
-  .slice(0, -5)
-  .split('T')[1];
-console.log(curTime);
-// Expected local machine time after adjusting for timezone
-
+// Set initial value in date-picker to todays date
 dateEl.setAttribute('min', today);
 
 // Populate countdown + Comlete UI
 function updateDom() {
   countdownActive = setInterval(() => {
-    const now = new Date().getTime();
+    const now = new Date().getTime() - timezoneOffset;
     const distance = countdownValue - now;
-    console.log('Distance', distance);
-
     const days = Math.floor(distance / day);
     const hours = Math.floor((distance % day) / hour);
     const minutes = Math.floor((distance % hour) / minute);
     const seconds = Math.floor((distance % minute) / second);
-    console.log(days, hours, minutes, seconds);
+    console.log('Line 39: ' + days, hours, minutes, seconds);
 
     //Populating Countdown
     countdownElTitle.textContent = `${countdownTitle}`;
@@ -69,11 +53,10 @@ function updateDom() {
 }
 
 // Take vals from form input
-function updateCountdown(e) {
-  e.preventDefault();
-  countdownTitle = e.srcElement[0].value;
-  countdownDate = e.srcElement[1].value;
-  console.log(countdownTitle, countdownDate);
+function updateCountdown(dateBox) {
+  dateBox.preventDefault();
+  countdownTitle = dateBox.target[0].value;
+  countdownDate = dateBox.target[1].value;
   // Check for valid date
   if (countdownDate < today) {
     alert(
@@ -82,10 +65,6 @@ function updateCountdown(e) {
   } else {
     // Get num ver of cur date
     countdownValue = new Date(countdownDate).getTime();
-    console.log(
-      'countdown value:',
-      countdownValue + ' milliseconds from Jan 1 1970'
-    );
     updateDom();
   }
 }
@@ -103,7 +82,5 @@ function reset() {
 
 // Event Listener
 countdownForm.addEventListener('submit', updateCountdown);
-// just testing in console
-console.log(today);
-console.log(typeof today);
+// when reset btn is pushed run reset func
 countdownBtn.addEventListener('click', reset);
