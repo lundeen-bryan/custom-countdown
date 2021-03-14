@@ -8,7 +8,7 @@
 
 ## Link To Project
 
-See the [Project name on Netlify](https://lundeen-bryan-custom-countdown.netlify.app/) on Netlify.
+See the [Custom Countdown App](https://lundeen-bryan-custom-countdown.netlify.app/) on Netlify.
 
 ---
 
