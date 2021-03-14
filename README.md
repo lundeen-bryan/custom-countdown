@@ -8,7 +8,7 @@
 
 ## Link To Project
 
-See the [[Project name on Netlify]]([netlify-url]) on Netlify.
+See the [Project name on Netlify](https://lundeen-bryan-custom-countdown.netlify.app/) on Netlify.
 
 ---
 
@@ -20,6 +20,7 @@ The following sections are bookmarked for easy reference.
 - [Technologies](#technologies)
 - [How To Use](#how-to-use)
 - [References](#references)
+- [Future Plans](#future-plans)
 - [Contributions](#contributions)
 - [License](#license)
 - [Author Info](#author-info)
@@ -59,7 +60,15 @@ Installation is very easy, just visit the url, enter a title for the event, sele
 
 I am currently not accepting contributions to this project, however feel free to leave comments on the issues tab of this project for consideration.
 
-<br/>
+---
+
+## Future Plans
+
+For the future I plan to redesign this so that a time can also be implemented and someone can see a countdown to the time of an event not just the day
+
+[Back To The Top](#custom-countdown)
+
+---
 
 ### Project Status
 
