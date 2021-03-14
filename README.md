@@ -1,6 +1,6 @@
 # Custom Countdown
 
-![[Image Desc for project]]([project image url])
+![screenshot](screenshot.png)
 
 > This readme file serves both to describe this project, serve as a sort-of design-doc, and as a reference for myself to return to when I need to implement a similar solution in a future project. This project is a custom countdown timer that flashes when the countdown reaches the appointed date.
 
